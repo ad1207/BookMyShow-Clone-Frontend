@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-
+import { BrowserRouter, Route, Routes,Link,useNavigate } from 'react-router-dom';
 
 function LoginUserComponent(){
     const [state,setState] = useState({
@@ -9,14 +9,17 @@ function LoginUserComponent(){
         password:''
     })
 
+    const navigate = useNavigate()
+
     const handleSubmit = (e) =>{
         e.preventDefault();
         const config = {headers:{"Content-Type":"application/json"}}
         const data = {email:state.email, password:state.password}
         axios.post('https://book-my-show-clone-nodejs.herokuapp.com/user/login',data, config).then((res) => {
             document.cookie = "token="+res.data.token
-            
         })
+        navigate('/book')
+        
     }
 
     return(

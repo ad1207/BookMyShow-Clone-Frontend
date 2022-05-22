@@ -12,6 +12,7 @@ import AddTheaterComponent from './addTheater';
 import TheaterList from './getTheaterList';
 import BookedList from './bookedList';
 import UpdateTheaterComponent from './changeMovies';
+import BookTicketComponent from './userBookTicket';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path='/list' element={<TheaterList/>}/>
           <Route path='/bookedlist' element={<BookedList/>}/>
           <Route path='/update' element={<UpdateTheaterComponent/>}/>
+          <Route path="/book" element={<BookTicketComponent/>}/>
         </Routes>
        </BrowserRouter>
      </div>

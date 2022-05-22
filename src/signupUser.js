@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import axios from "axios";
 import Cookies from "universal-cookie";
-
+import { BrowserRouter, Route, Routes,Link,useNavigate } from 'react-router-dom';
 
 function SignupUserComponent(){
     const [state,setState] = useState({
@@ -10,6 +10,8 @@ function SignupUserComponent(){
         email:'',
         password:''
     })
+
+    const navigate = useNavigate()
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -20,6 +22,7 @@ function SignupUserComponent(){
             console.log(res.data.token)
             console.log(document.cookie)
         })
+        navigate('/book')
     }
 
     return(
